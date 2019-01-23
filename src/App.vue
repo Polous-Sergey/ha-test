@@ -1,38 +1,75 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+    <v-app>
+        <drawer-component></drawer-component>
+        <toolbar-component></toolbar-component>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+        <v-content>
+            <v-container fluid fill-height>
+                        <router-view></router-view>
+                        <!--<div class="text-xs-center">-->
+                            <!--<v-dialog-->
+                                    <!--v-model="dialog"-->
+                                    <!--width="500"-->
+                            <!--&gt;-->
+                                <!--<v-card>-->
+                                    <!--<v-card-title-->
+                                            <!--class="headline grey lighten-2"-->
+                                            <!--primary-title-->
+                                    <!--&gt;-->
+                                        <!--Privacy Policy-->
+                                    <!--</v-card-title>-->
+
+                                    <!--<v-card-text>-->
+                                        <!--Lorem ipsum or incididunt uiqua.t nim id est laborum.-->
+                                    <!--</v-card-text>-->
+
+                                    <!--<v-divider></v-divider>-->
+
+                                    <!--<v-card-actions>-->
+                                        <!--<v-spacer></v-spacer>-->
+                                        <!--<v-btn-->
+                                                <!--color="primary"-->
+                                                <!--flat-->
+                                                <!--@click="dialog = false"-->
+                                        <!--&gt;-->
+                                            <!--I accept-->
+                                        <!--</v-btn>-->
+                                    <!--</v-card-actions>-->
+                                <!--</v-card>-->
+                            <!--</v-dialog>-->
+                            <!--<v-btn-->
+                                    <!--color="red lighten-2"-->
+                                    <!--dark-->
+                                    <!--@click="dialog = !dialog"-->
+                            <!--&gt;-->
+                                <!--Click Me-->
+                            <!--</v-btn>-->
+                        <!--</div>-->
+            </v-container>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+    import ToolbarComponent from './components/ToolbarComponent'
+    import DrawerComponent from './components/DrawerComponent'
+    import HelloWorld from './components/HelloWorld'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
+    export default {
+        name: 'App',
+        components: {
+            ToolbarComponent,
+            DrawerComponent,
+            HelloWorld
+        },
+        data() {
+            return {
+                dialog: false,
+            }
+        },
+        methods: {},
+        created() {
+
+        }
     }
-  }
-}
 </script>
