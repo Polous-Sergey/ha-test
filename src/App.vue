@@ -4,47 +4,55 @@
         <toolbar-component></toolbar-component>
 
         <v-content>
-            <v-container fluid fill-height>
-                        <router-view></router-view>
-                        <!--<div class="text-xs-center">-->
-                            <!--<v-dialog-->
-                                    <!--v-model="dialog"-->
-                                    <!--width="500"-->
-                            <!--&gt;-->
-                                <!--<v-card>-->
-                                    <!--<v-card-title-->
-                                            <!--class="headline grey lighten-2"-->
-                                            <!--primary-title-->
-                                    <!--&gt;-->
-                                        <!--Privacy Policy-->
-                                    <!--</v-card-title>-->
+            <v-container fluid>
+                <router-view></router-view>
+                <div class="text-xs-center">
+                    <v-dialog
+                            v-model="dialog"
+                            width="500"
+                    >
 
-                                    <!--<v-card-text>-->
-                                        <!--Lorem ipsum or incididunt uiqua.t nim id est laborum.-->
-                                    <!--</v-card-text>-->
+                        <div>
+                            sssssss
+                            <v-card style="position: relative">
+                                <v-card-title
+                                        class="headline grey lighten-2"
+                                        primary-title
+                                >
+                                    Privacy Policy
+                                </v-card-title>
 
-                                    <!--<v-divider></v-divider>-->
+                                <v-card-text>
+                                    Lorem ipsum or incididunt uiqua.t nim id est laborum.
+                                </v-card-text>
 
-                                    <!--<v-card-actions>-->
-                                        <!--<v-spacer></v-spacer>-->
-                                        <!--<v-btn-->
-                                                <!--color="primary"-->
-                                                <!--flat-->
-                                                <!--@click="dialog = false"-->
-                                        <!--&gt;-->
-                                            <!--I accept-->
-                                        <!--</v-btn>-->
-                                    <!--</v-card-actions>-->
-                                <!--</v-card>-->
-                            <!--</v-dialog>-->
-                            <!--<v-btn-->
-                                    <!--color="red lighten-2"-->
-                                    <!--dark-->
-                                    <!--@click="dialog = !dialog"-->
-                            <!--&gt;-->
-                                <!--Click Me-->
-                            <!--</v-btn>-->
-                        <!--</div>-->
+                                <v-divider></v-divider>
+
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn
+                                            color="primary"
+                                            flat
+                                            @click="dialog = false"
+                                    >
+                                        I accept
+                                    </v-btn>
+                                </v-card-actions>
+                            </v-card>
+                            <div style="position: absolute; top: -10px; right: -10px">
+                                ssss
+                            </div>
+                        </div>
+                    </v-dialog>
+
+                    <v-btn
+                            color="red lighten-2"
+                            dark
+                            @click="dialog = !dialog"
+                    >
+                        Click Me
+                    </v-btn>
+                </div>
             </v-container>
         </v-content>
     </v-app>

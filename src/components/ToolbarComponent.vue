@@ -10,26 +10,17 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
-            <v-layout column class="text-capitalize">
-                <!--<div>-->
-                <!--{{dayOfWeekString}}-->
-                <!--</div>-->
-                <div>
-                    {{currentTime.toLocaleString("ru", { weekday: 'long', })}}
+            <v-layout column>
+                <div class="text-capitalize">
+                    {{watchData.dayOfWeek}}
                 </div>
                 <div>
-                    {{currentTime.toLocaleString("ru", { year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',})}}
-                    ico
-                    {{currentTime.toLocaleString("ru", { hour: 'numeric',
-                    minute: 'numeric',})}}
-                    <!--{{currentTime.toLocaleString("ru", { day: 'short' })}}-->
+                    {{watchData.date}}
+                    <v-icon color="primary">access_time</v-icon>
+                    {{watchData.time}}
                 </div>
             </v-layout>
         </div>
-
-
     </v-toolbar>
 </template>
 
@@ -41,48 +32,22 @@
             HelloWorld
         },
         computed: {
-            dayOfWeekString() {
-                return this.dayDictionary(this.dayOfWeek);
-            }
+            watchData() {
+                return {
+                    dayOfWeek: this.currentTime.toLocaleString("ru", {weekday: 'long'}),
+                    time: this.currentTime.toLocaleString("ru", {hour: 'numeric', minute: 'numeric'}),
+                    date: this.currentTime.toLocaleString("ru", {year: 'numeric', month: 'short', day: 'numeric'})
+                }
+            },
         },
         data() {
             return {
-                currentTime: null,
-                dayOfWeek: null
+                currentTime: null
             }
         },
         methods: {
             updateCurrentTime() {
                 this.currentTime = new Date();
-                let currentDayOfWeek = this.currentTime.getDay();
-                if (currentDayOfWeek === this.dayOfWeek) return;
-                this.dayOfWeek = currentDayOfWeek;
-            },
-            dayDictionary(dayNumber) {
-                console.log('run');
-                switch (dayNumber) {
-                    case 1: {
-                        return 'Понедельник'
-                    }
-                    case 2: {
-                        return 'Вторник'
-                    }
-                    case 3: {
-                        return 'Среда'
-                    }
-                    case 4: {
-                        return 'Четверг'
-                    }
-                    case 5: {
-                        return 'Пятница'
-                    }
-                    case 6: {
-                        return 'Суббота'
-                    }
-                    case 7: {
-                        return 'Воскресенье'
-                    }
-                }
             }
         },
         filters: {},

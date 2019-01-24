@@ -7,6 +7,17 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bcrypt": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.6",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sharp": "^0.21.3",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",
     "vuetify": "^1.3.0",

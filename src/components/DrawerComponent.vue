@@ -21,6 +21,20 @@
             </v-badge>
         </div>
 
+        <v-list>
+            <v-list-tile
+                    v-for="item in items"
+                    :key="item.title"
+                    :to="item.link"
+                    class="text-xs-center"
+            >
+
+                <v-list-tile-content>
+                    <v-list-tile-title class="text-xs-center text-uppercase" v-text="item.title"></v-list-tile-title>
+                </v-list-tile-content>
+
+            </v-list-tile>
+        </v-list>
 
     </v-navigation-drawer>
 </template>
@@ -35,6 +49,13 @@
         data() {
             return {
                 drawer: true,
+                items: [
+                    { title: 'Приход', link: '/'},
+                    { title: 'Группы', link: '/about' },
+                    { title: 'Продукты', link: '/products' },
+                    { title: 'Пользователи',link: '/users' },
+                    { title: 'Настройки', link: '/settings' }
+                ]
             }
         },
         methods: {},
