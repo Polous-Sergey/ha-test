@@ -20,32 +20,47 @@ async function getById(id) {
 
 async function create(productParam, file) {
 
-    console.log(typeof productParam);
-    console.log(typeof productParam.guarantee);
-    // throw productParam;
-
-
     // validate
-    // if (!productParam.title || !productParam.serialNumber ||
-    //     !productParam.type || !file ||
-    //     !typeof productParam.isNotUsed !== 'boolean' || !productParam.specification ||
-    //     !productParam.guarantee.start || !productParam.guarantee.end ||
-    //     !productParam.price.length || !productParam.order) {
-    //     throw 'All fields required';
-    // }
+    if (!productParam.serialNumber || !productParam.isNotUsed ||
+        !file || !productParam.title || !productParam.type ||
+        !productParam.specification || !productParam.guarantee ||
+        !productParam.price || !productParam.order) {
+        throw 'All fields required';
+    }
+
     let serialNumber = productParam.serialNumber.trim();
-    let isNotUsed = !!productParam.isNotUsed;
+    let isNotUsed = productParam.isNotUsed.trim() === 'true';
     let photo = file.path;
     let title = productParam.title.trim();
     let type = productParam.type.trim();
     let specification = productParam.specification.trim();
-
-    let guarantee = JSON.parse(productParam.guarantee);
-
-    let price = JSON.parse(productParam.price);
-
     let order = +productParam.order.trim();
 
+
+    let guarantee;
+    let price;
+
+    try {
+        guarantee = JSON.parse(productParam.guarantee);
+    } catch (err) {
+        throw 'Invalid guarantee JSON'
+    }
+
+    try {
+        price = JSON.parse(productParam.price);
+    } catch (err) {
+        throw 'Invalid price JSON'
+    }
+
+    if (!Object(guarantee) || !guarantee.start || !guarantee.end) throw 'Price must contain only array of price';
+    let a = new Date('a');
+    console.log(typeof a);
+    console.log(a);
+    console.log(a === null);
+
+    return {a: a};
+
+    if (!Array.isArray(price) || !price.length) throw 'Guarantee must contain only object of guarantee';
 
     // if (title.length < 1) throw 'Name must be at least 1 symbol long';
     // // if (title.length > 5) throw 'Name must be no more than 5 symbol long';
@@ -63,27 +78,29 @@ async function create(productParam, file) {
     //     throw 'Invalid type id';
     // }
 
-    try {
-        let imageBuffer = await sharp(file.path)
-            .resize(400, 200)
-            .toFile(`resize/${file.originalname}`);
-    } catch (err) {
-        throw err;
-    }
+    throw 'aaaaaaaa';
 
-    const product = new Products();
-    product.serialNumber = serialNumber;
-    product.isNotUsed = isNotUsed;
-    product.photo = photo;
-    product.title = title;
-    product.type = type;
-    product.specification = specification;
-    product.guarantee = guarantee;
-    product.price = price;
-    product.order = order;
-
-    // save product
-    return await product.save();
+    // try {
+    //     let imageBuffer = await sharp(file.path)
+    //         .resize(400, 200)
+    //         .toFile(`resize/${file.originalname}`);
+    // } catch (err) {
+    //     throw err;
+    // }
+    //
+    // const product = new Products();
+    // product.serialNumber = serialNumber;
+    // product.isNotUsed = isNotUsed;
+    // product.photo = photo;
+    // product.title = title;
+    // product.type = type;
+    // product.specification = specification;
+    // product.guarantee = guarantee;
+    // product.price = price;
+    // product.order = order;
+    //
+    // // save product
+    // return await product.save();
 }
 
 async function _delete(id) {
