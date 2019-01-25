@@ -6,6 +6,8 @@ const passport = require('passport');
 const logger = require('morgan');
 const errorHandler = require('./config/error-handler');
 
+require('./socket');
+
 // bring in the data model
 require('./models/db');
 

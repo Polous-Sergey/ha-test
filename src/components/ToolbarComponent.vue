@@ -13,6 +13,7 @@
             <v-layout column>
                 <div class="text-capitalize">
                     {{watchData.dayOfWeek}}
+                    {{counter}}
                 </div>
                 <div>
                     {{watchData.date}}
@@ -31,6 +32,14 @@
         components: {
             HelloWorld
         },
+        sockets: {
+            connect: function () {
+                console.log('socket connected');
+            },
+            counter: function (data) {
+                this.counter = data;
+            }
+        },
         computed: {
             watchData() {
                 return {
@@ -42,7 +51,8 @@
         },
         data() {
             return {
-                currentTime: null
+                currentTime: null,
+                counter: null
             }
         },
         methods: {
