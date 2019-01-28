@@ -11,13 +11,16 @@
         <v-spacer></v-spacer>
         <div>
             <v-layout column>
-                <div class="text-capitalize">
-                    {{watchData.dayOfWeek}}
-                    {{counter}}
-                </div>
+                <v-layout justify-space-between align-end class="text-capitalize">
+                    <div>{{watchData.dayOfWeek}}</div>
+                    <v-layout justify-end align-end>
+                        <v-icon class="mr-1" color="primary">supervisor_account</v-icon>
+                        {{counter}}
+                    </v-layout>
+                </v-layout>
                 <div>
                     {{watchData.date}}
-                    <v-icon color="primary">access_time</v-icon>
+                    <v-icon class="ml-2" color="primary">access_time</v-icon>
                     {{watchData.time}}
                 </div>
             </v-layout>

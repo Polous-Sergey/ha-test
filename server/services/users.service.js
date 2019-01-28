@@ -30,10 +30,10 @@ async function create(userParam) {
     let email = userParam.email.trim();
     let password = userParam.password.trim();
 
-    if (name.length < 5) throw 'Name must be at least 5 letters long';
+    if (name.length < 1) throw 'Name must be at least 1 letters long';
     if (name.length > 25) throw 'Name must be no more than 25 letters long';
 
-    if (email.length < 8) throw 'Email must be at least 8 characters long';
+    if (email.length < 5) throw 'Email must be at least 5 characters long';
     if (email.length > 50) throw 'Email must be no more than 50 characters long';
 
     if (password.length < 1) throw 'Password must be at least 1 characters long';

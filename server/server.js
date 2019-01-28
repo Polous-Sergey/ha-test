@@ -1,18 +1,21 @@
 const express = require('express');
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const logger = require('morgan');
 const errorHandler = require('./config/error-handler');
 
-require('./socket');
-
 // bring in the data model
 require('./models/db');
 
 // bring in the Passport config
 require('./config/passport');
+
+//bring in the socket.io
+require('./socket')(io);
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -24,12 +27,13 @@ app.use(passport.initialize());
 
 // api routes
 app.use('/api', require('./routes/index'));
+app.use('/images', express.static('uploads'));
 
 // global error handler
 app.use(errorHandler);
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
-app.listen(port, function () {
+server.listen(port, function () {
     console.log('API Started on port ' + port);
 });

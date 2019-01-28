@@ -45,13 +45,13 @@
                         </div>
                     </v-dialog>
 
-                    <v-btn
-                            color="red lighten-2"
-                            dark
-                            @click="dialog = !dialog"
-                    >
-                        Click Me
-                    </v-btn>
+                    <!--<v-btn-->
+                            <!--color="red lighten-2"-->
+                            <!--dark-->
+                            <!--@click="dialog = !dialog"-->
+                    <!--&gt;-->
+                        <!--Click Me-->
+                    <!--</v-btn>-->
                 </div>
             </v-container>
         </v-content>

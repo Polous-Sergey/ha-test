@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-// const jwt = require('../config/jwt')();
+const jwt = require('../config/jwt')();
 const upload = require('../config/multer')();
 
-// const ctrlUsers = require('../controllers/users');
+const ctrlUsers = require('../controllers/users');
 const ctrlTypes = require('../controllers/types');
 const ctrlProducts = require('../controllers/products');
 const ctrlOrders = require('../controllers/orders');
 
 // users
-// router.post('/users', ctrlUsers.register);
-// router.post('/users/auth', ctrlUsers.login);
-// router.get('/users', jwt, ctrlUsers.userList);
-// router.get('/users/:id', jwt, ctrlUsers.userById);
+router.post('/users', ctrlUsers.register);
+router.post('/users/auth', ctrlUsers.login);
+router.get('/users', jwt, ctrlUsers.userList);
+router.get('/users/:id', jwt, ctrlUsers.userById);
 
 // types
 router.get('/types', ctrlTypes.typesList);

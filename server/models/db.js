@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const config = require('../config/main-config');
 const dbURI = config.database;
 
-mongoose.connect(dbURI, {useNewUrlParser: true});
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 
 // connection events
 mongoose.connection.on('connected', function() {

@@ -1,24 +1,18 @@
-const server = require('http').createServer();
-const io = require('socket.io')(server);
-
 let connectCounter = 0;
 
-io.on('connection', function (socket) {
-    connectCounter++;
-    sendConnectCounter();
+module.exports = (io) => {
+    io.on('connection', function (socket) {
+        connectCounter++;
+        sendConnectCounter(io);
 
-    socket.on('disconnect', function () {
-        connectCounter--;
-        sendConnectCounter();
+        socket.on('disconnect', function () {
+            connectCounter--;
+            sendConnectCounter(io);
+        });
     });
-});
 
-function sendConnectCounter() {
+};
+
+function sendConnectCounter(io) {
     io.emit('counter', connectCounter);
 }
-
-
-server.listen(3000, function (err) {
-    if (err) throw err;
-    console.log('Socket listening on port 3000')
-});
