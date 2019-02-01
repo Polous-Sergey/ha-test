@@ -13,10 +13,10 @@
                 <v-card-title primary-title>
 
 
-                    <div>
-                        <v-btn small icon>
+                    <div class="mx-2">
+                        <div>
                             <v-icon small>fiber_manual_record</v-icon>
-                        </v-btn>
+                        </div>
                     </div>
                     <!--<div>-->
                     <!--<v-img-->
@@ -43,30 +43,30 @@
                     </div>
 
                     <!--<div class="mx-2">-->
-                        <!--<v-layout column align-center class="d-inline-block">-->
-                            <!--<div class="caption grey&#45;&#45;text">c</div>-->
-                            <!--<div class="caption grey&#45;&#45;text">по</div>-->
-                        <!--</v-layout>-->
+                    <!--<v-layout column align-center class="d-inline-block">-->
+                    <!--<div class="caption grey&#45;&#45;text">c</div>-->
+                    <!--<div class="caption grey&#45;&#45;text">по</div>-->
+                    <!--</v-layout>-->
 
-                        <!--<v-layout column align-center class="d-inline-block">-->
-                            <!--<h6 class="ml-2 subheading mb-0">06/04/2017</h6>-->
-                            <!--<h6 class="ml-2 subheading mb-0">06/04/2017</h6>-->
-                        <!--</v-layout>-->
+                    <!--<v-layout column align-center class="d-inline-block">-->
+                    <!--<h6 class="ml-2 subheading mb-0">06/04/2017</h6>-->
+                    <!--<h6 class="ml-2 subheading mb-0">06/04/2017</h6>-->
+                    <!--</v-layout>-->
                     <!--</div>-->
 
                     <div class="mx-2">
                         <h6 class="subheading mb-0">новый</h6>
                     </div>
 
-                    <div class="mx-2">
-                        <h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>
-                    </div>
-                    <div class="mx-2">
-                        <h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>
-                    </div>
-                    <div class="mx-2">
-                        <h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>
-                    </div>
+                    <!--<div class="mx-2">-->
+                    <!--<h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>-->
+                    <!--</div>-->
+                    <!--<div class="mx-2">-->
+                    <!--<h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>-->
+                    <!--</div>-->
+                    <!--<div class="mx-2">-->
+                    <!--<h6 class="subheading mb-0">Длиннючее при длиннючее название группы</h6>-->
+                    <!--</div>-->
 
                 </v-card-title>
 
